@@ -2,16 +2,15 @@ import React, { useState, useEffect, memo } from "react";
 import { CountdownContainer, CountdownCircle } from "./style";
 
 interface CountdownProps {
+  duration:number,
   onFinish: () => void;
   onTimeUpdate?: (timeRemaining: number) => void;
   onCountClick?: () => void;
 }
 
 const Countdown: React.FC<CountdownProps> = memo(
-  ({ onFinish, onTimeUpdate, onCountClick }) => {
-    const duration = 8000;
+  ({ onFinish, onTimeUpdate, onCountClick, duration }) => {
     const [timeRemaining, setTimeRemaining] = useState(duration);
-
     useEffect(() => {
       const interval = setInterval(() => {
         if (setTimeRemaining) {
