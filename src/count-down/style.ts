@@ -4,18 +4,6 @@ interface CountdownContainerProps {
   timeRemaining: number;
 }
 
-// export const CountdownContainer = styled.div<CountdownContainerProps>(({ duration, timeRemaining }) => ({
-//     position: 'relative',
-//     display: 'flex',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     width: '100px',
-//     height: '100px',
-//     borderRadius: '50%',
-//       fontSize: '24px',
-//   fontWeight: 'bold',
-//     background: `conic-gradient(#ffffff ${100 - (timeRemaining / duration) * 100}%, transparent 0)`
-//   }));
 
 export const CountdownContainer = styled.div<CountdownContainerProps>`
   position: relative;
@@ -50,10 +38,10 @@ export const CountdownCircle = styled.svg<CountdownContainerProps>`
 
   .circle-progress {
     stroke: #ffffff;
-    stroke-dasharray: ${() => 2.5 * Math.PI * 48}; 
+    stroke-dasharray: ${() => 2.3 * Math.PI * 48}; 
     stroke-dashoffset: ${({ timeRemaining }) =>
-    timeRemaining <= 1000 ? 300 * (1 - timeRemaining / 1000) : (props) =>
-        (props.timeRemaining / props.duration) * 2.5 * Math.PI * 48};
+     (props) =>
+        (props.timeRemaining / props.duration) * 2.3 * Math.PI * 48};
     transition: stroke-dashoffset 1s linear;
   }
 `;

@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
-import Countdown from '../count-down'; // 假设 Countdown 组件路径
+import React, { useState, useCallback } from 'react';
+import Countdown from '../count-down/CountDown'; // 假设 Countdown 组件路径
 import NewComponent from './NewComponent'; // 新组件路径
 
 const VideoCard: React.FC = () => {
   const [showCountdown, setShowCountdown] = useState(true);
   const [timeRemaining, setTimeRemaining] = useState(8000); // 初始化为 Countdown 组件一致的值
 
-  const handleCountdownFinish = () => {
+  const handleCountdownFinish = useCallback(() => {
     setShowCountdown(false); // 隐藏 Countdown 组件
-  };
+  },[]);
 
-  const handleCountdownClick = () => {
+  const handleCountdownClick = useCallback(() => {
     setShowCountdown(false); // 隐藏 Countdown 组件
     // 点击事件处理
     console.log('history');
-  };
+  },[]);
 
-  const handleTimeUpdate = (newTimeRemaining: number) => {
+  const handleTimeUpdate = useCallback((newTimeRemaining: number) => {
     setTimeRemaining(newTimeRemaining);
-  };
+  },[]);
 
   return (
     <div>
@@ -31,9 +31,9 @@ const VideoCard: React.FC = () => {
             onCountClick={handleCountdownClick}
           />
         </>
-      ) : (
+     ) : (
         <NewComponent />
-      )}
+      )} 
     </div>
   );
 };
