@@ -13,7 +13,6 @@ const Countdown: React.FC<CountdownProps> = memo(
     const [timeRemaining, setTimeRemaining] = useState(duration);
     useEffect(() => {
       const interval = setInterval(() => {
-        if (setTimeRemaining) {
           const newTimeRemaining = timeRemaining - 1000;
           if (newTimeRemaining <= 0) {
             clearInterval(interval);
@@ -24,7 +23,6 @@ const Countdown: React.FC<CountdownProps> = memo(
             onTimeUpdate?.(newTimeRemaining);
             setTimeRemaining(newTimeRemaining);
           }
-        }
       }, 1000);
 
       return () => clearInterval(interval);
