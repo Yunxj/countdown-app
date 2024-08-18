@@ -11,6 +11,7 @@
 import React, { useState, useCallback } from "react";
 import VideoCard from "../video-card";
 import NewComponent from "../video-card/NewComponent"; // 新组件路径
+// import {VidEditor} from "../feature-flag"
 
 const VideoDetail: React.FC = () => {
   const [showCountdown, setShowCountdown] = useState(true);
@@ -28,6 +29,10 @@ const VideoDetail: React.FC = () => {
   return (
     <div>
       <h2>Video Detail</h2>
+      {/* <VideoCard
+          onFinish={handleCountdownFinish}
+          onCountClick={handleCountdownClick}
+        /> */}
       {showCountdown ? (
         <VideoCard
           onFinish={handleCountdownFinish}
@@ -36,6 +41,7 @@ const VideoDetail: React.FC = () => {
       ) : (
         <NewComponent />
       )}
+      {/* <VidEditor/> */}
     </div>
   );
 };
